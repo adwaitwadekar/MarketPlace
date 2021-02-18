@@ -42,7 +42,7 @@ import './styles/Previews.css';
 // Images
 // ==================
 // Import any logos, other images;
-
+import logo from './SBD.png'
 
 
 
@@ -141,7 +141,7 @@ function Home() {
                 <Grid item style={{ marginTop: '30px', marginLeft: '5px' }}>
                     {/* !! Place Client Logo here !! 
                         TODO - Add styling to img to avoid heading errors*/}
-                    {/*<img src={logo} style={{width: '250px'}}></img>*/}
+                    {<img src={logo} style={{width: '250px'}}></img>}
                 </Grid>
                 {/* Welcome Message */}
                 <Grid item xs={6} style={{ textAlign: 'center', marginLeft: '21em', marginTop: '20px'}}>
