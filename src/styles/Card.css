@@ -1,0 +1,14 @@
+/* Card.css */
+
+.link { 
+    color: #000000
+}
+
+.link:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+.cardBody {
+    display: flex;
+}
