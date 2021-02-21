@@ -63,8 +63,6 @@ function App() {
   );
 }
 
-
-
 // App Home page
 
 function Home() {
