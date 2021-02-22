@@ -36,7 +36,7 @@ class Thumbnail extends React.Component {
         return (
             <Grid container style={{ width: this.state.width, height: this.state.height }}>
                 <Grid item style={{ width: this.state.width, height: this.state.height *.95 }}>
-                    {/*<img src={this.state.img} onClick={this.handleClick} style={{ width: this.state.width, height: this.state.height, cursor: "pointer" }}></img>*/}
+                    {<img src={this.state.img} onClick={this.handleClick} style={{ width: this.state.width, height: this.state.height, cursor: "pointer" }}></img>}
                 </Grid>
                 <Grid item style={{ height: this.state.titleHeight, paddingLeft: '5px'}}>
                     <Typography style={{ fontSize:"14px", alignSelf: 'center', paddingTop: '5px' }}>{this.state.title}</Typography>

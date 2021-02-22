@@ -32,7 +32,7 @@ class DeptCard extends React.Component {
                 <Card style={{ width: '300px', height: '325px', textAlign: 'center' }}>
                     <Link to="/previews" className='link' id={this.state.id} onClick={this.handleClick}>
                         <Card.Body className='cardBody' style={{ background: '#e6e6e6', height: '240px', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', paddingBottom: 0 }}>
-                            {/*<img src={this.state.img} style={{ height: '45%', width: '45%', objectFit:'contain' }}></img>*/}
+                            {<img src={this.state.img} style={{ height: '45%', width: '45%', objectFit:'contain' }}></img>}
                             <Card.Title style={{ display: 'flex', alignSelf: 'flex-start', fontSize: '25px' }}>{this.state.title}</Card.Title>
                         </Card.Body>
                         <Card.Footer className="text-muted" style={{ display: 'flex', background: 'lightGrey', height: '85px', fontSize: '20px', justifyContent: 'center', alignItems: 'center' }}>{this.state.metricsText}</Card.Footer>

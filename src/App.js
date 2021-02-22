@@ -16,7 +16,9 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import CalendarTodaySharpIcon from '@material-ui/icons/CalendarTodaySharp';
 import HelpIcon from '@material-ui/icons/Help';
 import CloseIcon from '@material-ui/icons/Close';
+import { withStyles } from "@material-ui/core/styles";
 import { fade, makeStyles } from '@material-ui/core/styles';
+import Box from '@material-ui/core/Box';
 
 // React Router Components
 import {
@@ -43,6 +45,7 @@ import './styles/Previews.css';
 // ==================
 // Import any logos, other images;
 import logo from './SBD.png'
+import Background from './bgimg.jpg'
 
 
 
@@ -85,6 +88,7 @@ function Home() {
             },
             width: '100%',
             alignItems: 'stretch',
+            justify: 'center',
             justifyContent: 'space-between',
             [theme.breakpoints.up('md')]: {
                 margin: theme.spacing(5, 29, 0),
@@ -108,6 +112,13 @@ function Home() {
         inputRoot: {
             color: 'inherit',
         },
+        homeImg: {
+            // used css-loader instead of app.css here
+            backgroundImage: `url(${Background})`
+        },
+        headerStyle: {
+            backgroundColor: 'rgba(128,128,128,0.8)'
+        },
         inputInput: {
             padding: theme.spacing(.5, 0, 1.25, 0),
             // vertical padding + font size from searchIcon
@@ -123,26 +134,32 @@ function Home() {
     // 'classes' declaration
     const classes = useStyles();
 
+    //whiteTextTypography
+    const WhiteTextTypography = withStyles({
+        root: {
+          color: "#FFFFFF"
+        }
+      })(Typography);
 
     return (
         // Grid Wrapper
         <Grid container
-            id='homeWrapper' direction="row">
+            id='homeWrapper' direction="row" className={classes.homeImg}>
             {/* Header contianer */}
             <Grid container
                 direction="row"
                 justify="space-around"
                 alignItems="stretch"
                 spacing={10}
-                style={{ color: '#000000', overflow: 'hidden' }}>
+                style={{ color: '#000000', overflow: 'hidden' }}
+                className={classes.headerStyle}>
                 {/* Client Logo */}
-                <Grid item style={{ marginTop: '30px', marginLeft: '5px' }}>
-                    {/* !! Place Client Logo here !! 
-                        TODO - Add styling to img to avoid heading errors*/}
+                <Grid item  style={{ marginTop: '30px', marginLeft: '5px' }}>
+                    {/* !! Place Client Logo here !! */}
                     {<img src={logo} style={{width: '250px'}}></img>}
                 </Grid>
                 {/* Welcome Message */}
-                <Grid item xs={6} style={{ textAlign: 'center', marginLeft: '21em', marginTop: '20px'}}>
+                <Grid item xs={6} style={{ textAlign: 'center', marginLeft: '21em', marginTop: '20px'}} justify='center'>
                     <Typography variant='p' style={{fontSize:'30px', margin:'55px 0 25px'}}>
                         Hello {'{User}'}, Welcome to the <strong>Integrated Data and Analytics Portal</strong>
                     </Typography>
@@ -209,12 +226,12 @@ function Home() {
                     xs={12}
                     lg={7}
                     style={{padding: '24px 55px'}}>
-                    <Typography variant="h5" gutterBottom>
+                    <WhiteTextTypography variant="h5" gutterBottom>
                         Intelligent Alert / Recommended Reports
-                    </Typography>
-                    <Typography variant="p" gutterBottom>
+                    </WhiteTextTypography>
+                    <WhiteTextTypography variant="p" gutterBottom>
                         This is a placeholder to have either weather alerts impacting the region / area to be concerned about or to have the <br/> recommended reports / assets, based on the SSO authentication. 
-                    </Typography>
+                    </WhiteTextTypography>
                 </Grid>
                 <Grid
                     item
@@ -319,7 +336,7 @@ function Previews() {
                     <Grid item style={{ marginTop: '30px', marginLeft: '5px' }}>
                         <Link to="/" className='link'>
                             {/* !! Place Client Logo here !! */}
-                            {/*<img src={CLIENT LOGO} style={{ width: '250px' }}></img>*/}
+                            {<img src={logo} style={{width: '250px'}}></img>}
                         </Link>
                         </Grid>                   
                     <Grid item style={{ textAlign: 'left', marginLeft: '37em'}}>

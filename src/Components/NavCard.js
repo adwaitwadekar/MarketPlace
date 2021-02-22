@@ -47,11 +47,10 @@ class NavCard extends React.Component {
             <Grid container id={this.state.id} onClick={this.handleClick} className="NavCard-wrapper" >
                 <Grid item id={this.state.id} className="NavCard-highlightBar"></Grid>
                 <Grid item className="NavCard-content">
-                    {/*<img src={this.state.img} className="NavCard-icon" style={{objectFit:'contain'}}></img>*/}
+                    {<img src={this.state.img} className="NavCard-icon" style={{objectFit:'contain'}}></img>}
                     <Typography style={{ textAlign:'center', paddingBottom: '5px' }}></Typography>
                     {this.state.title}
                 </Grid>
-
             </Grid>
 
         )
