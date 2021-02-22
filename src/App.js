@@ -159,7 +159,7 @@ function Home() {
                     {<img src={logo} style={{width: '250px'}}></img>}
                 </Grid>
                 {/* Welcome Message */}
-                <Grid item xs={6} style={{ textAlign: 'center', marginLeft: '21em', marginTop: '20px'}} justify='center'>
+                <Grid item xs={6} style={{ textAlign: 'center', marginTop: '20px'}} justify='center'>
                     <Typography variant='p' style={{fontSize:'30px', margin:'55px 0 25px'}}>
                         Hello {'{User}'}, Welcome to the <strong>Integrated Data and Analytics Portal</strong>
                     </Typography>
