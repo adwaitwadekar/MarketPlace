@@ -12,6 +12,7 @@ a {
 
 #homeWrapper {
     /*background-image: BACKGROUND IMG URL HERE;*/
+    background-image: url("CoverBG.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     overflow: hidden;

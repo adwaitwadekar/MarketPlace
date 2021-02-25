@@ -18,7 +18,6 @@ import HelpIcon from '@material-ui/icons/Help';
 import CloseIcon from '@material-ui/icons/Close';
 import { withStyles } from "@material-ui/core/styles";
 import { fade, makeStyles } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
 
 // React Router Components
 import {
@@ -45,7 +44,7 @@ import './styles/Previews.css';
 // ==================
 // Import any logos, other images;
 import logo from './SBD.png'
-import Background from './bgimg.jpg'
+//import Background from './imageAssets/CoverBG.jpg'
 
 
 
@@ -114,10 +113,11 @@ function Home() {
         },
         homeImg: {
             // used css-loader instead of app.css here
-            backgroundImage: `url(${Background})`
+            //backgroundImage: `url(${Background})`
         },
         headerStyle: {
-            backgroundColor: 'rgba(128,128,128,0.8)'
+            // grey shading for header
+            backgroundColor: 'rgba(128,128,128,0.0)'
         },
         inputInput: {
             padding: theme.spacing(.5, 0, 1.25, 0),
@@ -160,13 +160,13 @@ function Home() {
                 </Grid>
                 {/* Welcome Message */}
                 <Grid item xs={6} style={{ textAlign: 'center', marginTop: '20px'}} justify='center'>
-                    <Typography variant='p' style={{fontSize:'30px', margin:'55px 0 25px'}}>
+                    <WhiteTextTypography variant='p' style={{fontSize:'30px', margin:'55px 0 25px'}}>
                         Hello {'{User}'}, Welcome to the <strong>Integrated Data and Analytics Portal</strong>
-                    </Typography>
-                    <Typography style={{height: '15px'}}></Typography>
-                    <Typography variant='p' style={{padding: '20px'}}>
+                    </WhiteTextTypography>
+                    <WhiteTextTypography style={{height: '15px'}}></WhiteTextTypography>
+                    <WhiteTextTypography variant='p' style={{padding: '20px'}}>
                         This portal allows Business and IT users to access data assets across the enterprise.
-                    </Typography>
+                    </WhiteTextTypography>
                     { /* Search Bar */}
                     <Grid className={classes.search}>
                         <InputBase
@@ -183,7 +183,7 @@ function Home() {
                     </Grid>
                 {/* Header Icons */}
                 </Grid>
-                <Grid item className={classes.root} style={{paddingLeft: '11em', color:"blue"}}>
+                <Grid item className={classes.root} style={{paddingLeft: '11em', color:"yellow"}}>
                     <IconButton aria-label="favorite icon" color="inherit" style={{margin:0, padding:0}}>
                         <Badge color="secondary">
                             <StarsRoundedIcon fontSize='large' />
@@ -226,12 +226,12 @@ function Home() {
                     xs={12}
                     lg={7}
                     style={{padding: '24px 55px'}}>
-                    <WhiteTextTypography variant="h5" gutterBottom>
+                    <Typography variant="h5" gutterBottom>
                         Intelligent Alert / Recommended Reports
-                    </WhiteTextTypography>
-                    <WhiteTextTypography variant="p" gutterBottom>
+                    </Typography>
+                    <Typography variant="p" gutterBottom>
                         This is a placeholder to have either weather alerts impacting the region / area to be concerned about or to have the <br/> recommended reports / assets, based on the SSO authentication. 
-                    </WhiteTextTypography>
+                    </Typography>
                 </Grid>
                 <Grid
                     item
