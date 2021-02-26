@@ -21,7 +21,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from "@material-ui/core/styles";
 import { fade, makeStyles } from '@material-ui/core/styles';
-import { top100Films } from './sampleData.js'
+import { assetsList } from './sampleData.js'
 
 
 // React Router Components
@@ -190,7 +190,7 @@ function Home() {
 
                         <Autocomplete
                         id="combo-box-demo"
-                        options={top100Films}
+                        options={assetsList}
                         getOptionLabel={(option) => option.title}
                         style={{ width: 450 }}
                         renderInput={(params) => <TextField {...params} label="Search Reporting Assets" />}
