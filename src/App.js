@@ -16,8 +16,13 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import CalendarTodaySharpIcon from '@material-ui/icons/CalendarTodaySharp';
 import HelpIcon from '@material-ui/icons/Help';
 import CloseIcon from '@material-ui/icons/Close';
+import Divider from '@material-ui/core/Divider'
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import TextField from '@material-ui/core/TextField';
 import { withStyles } from "@material-ui/core/styles";
 import { fade, makeStyles } from '@material-ui/core/styles';
+import { top100Films } from './sampleData.js'
+
 
 // React Router Components
 import {
@@ -168,8 +173,10 @@ function Home() {
                         This portal allows Business and IT users to access data assets across the enterprise.
                     </WhiteTextTypography>
                     { /* Search Bar */}
+
                     <Grid className={classes.search}>
-                        <InputBase
+
+                        {/* <InputBase
                             placeholder="Search Reporting Assets"
                             classes={{
                                 root: classes.inputRoot,
@@ -179,9 +186,20 @@ function Home() {
                         />
                         <div className={classes.searchIcon}>
                             <SearchIcon />
-                        </div>
+                        </div> */}
+
+                        <Autocomplete
+                        id="combo-box-demo"
+                        options={top100Films}
+                        getOptionLabel={(option) => option.title}
+                        style={{ width: 450 }}
+                        renderInput={(params) => <TextField {...params} label="Search Reporting Assets" />}
+                        />
+
                     </Grid>
+                    
                 {/* Header Icons */}
+                {/* Wrap */}
                 </Grid>
                 <Grid item className={classes.root} style={{paddingLeft: '11em', color:"yellow"}}>
                     <IconButton aria-label="favorite icon" color="inherit" style={{margin:0, padding:0}}>
@@ -198,6 +216,7 @@ function Home() {
                         <AccountCircle style={{width: '70px', height:'70px'}} />
                     </IconButton>
                 </Grid>
+                <Divider />
             </Grid>
             {/* Card Carousel */}
             <Grid
