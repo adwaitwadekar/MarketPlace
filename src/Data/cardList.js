@@ -1,5 +1,4 @@
 // cardList.js 
-import demo from './demo.png'
 import ds from '../imageAssets/DataServices.png'
 import rs from '../imageAssets/ReportingServices.png'
 import aa from '../imageAssets/AdvancedAnalytics.png'
@@ -14,6 +13,7 @@ export const cardList = [
         altText: "",
         metricsText: "PLACEHOLDER FOR KPIs",
         metrics: "",
+        route: "/datapage"
     },
     {
         id: 1,
@@ -23,6 +23,7 @@ export const cardList = [
         altText: "",
         metricsText: "PLACEHOLDER FOR KPIs",
         metrics: "",
+        route: "/previews"
     },
     {
         id: 2,
@@ -32,6 +33,7 @@ export const cardList = [
         altText: "",
         metricsText: "PLACEHOLDER FOR KPIs",
         metrics: "",
+        route: "/"
     },
     {
         id: 3,
@@ -41,5 +43,6 @@ export const cardList = [
         altText: "",
         metricsText: "PLACEHOLDER FOR KPIs",
         metrics: "",
+        route: "/"
     },
 ];

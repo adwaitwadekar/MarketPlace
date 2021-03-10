@@ -50,7 +50,8 @@
 .previews-container {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
+    padding: 5%;
 
 }
 
