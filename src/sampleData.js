@@ -5,4 +5,5 @@ export const assetsList = [
     { title: 'Electronic Cost Tool', tags: ['electronics', 'price', 'material', 'cross-portfolio comparison', 'vendor spend', 'harmonize spend'] },
     { title: 'Materials Required to Operate (MRO) Compliance Dashboard', tags: ['portfolio comparison', 'harmonize vendor spend', 'optimizer', 'ICO'] },
     { title: 'Temp Labor Optimization', tags: ['temp labor spend', 'non-compliant spend', 'optimizer', 'ICO'] },
+    { title: 'nCov2019 - Sample Asset'}
   ];

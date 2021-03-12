@@ -20,8 +20,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from "@material-ui/core/styles";
 import { fade, makeStyles } from '@material-ui/core/styles';
-import { assetsList } from './sampleData.js'
-import DataPage from './Components/DataPage.js'
+import { Button } from '@material-ui/core';
 
 
 // React Router Components
@@ -40,6 +39,9 @@ import ExpandedReport from './Components/ExpandedReport.js';
 import NavCard from './Components/NavCard.js';
 import NavRight from './Components/NavRight.js';
 import Thumbnail from './Components/Thumbnail.js';
+import { assetsList } from './sampleData.js';
+import DataPage from './Components/DataPage.js';
+import FavPage from './Components/FavPage.js'
 
 
 // Stylesheets
@@ -67,6 +69,9 @@ function App() {
                 </Route>
                 <Route exact path="/datapage">
                     <DataPage />
+                </Route>
+                <Route exact path="/favpage">
+                    <FavPage />
                 </Route>
             </Switch>
         </Router>
@@ -103,16 +108,16 @@ function Home() {
             },
         },
         searchIcon: {
-            marginBottom: '5px',
+            marginBottom: '1px',
             marginLeft: '3px',
             padding: theme.spacing(.25, 0, 0, .25),
-            height: '100%',
+            height: '85%',
             position: 'relative',
             left: '0px',
             pointerEvents: 'none',
             display: 'flex',
             backgroundColor: '#FFD20D',
-            borderRadius: 100,
+            borderRadius: 50,
             color: '#ffffff'
         },
         inputRoot: {
@@ -157,7 +162,7 @@ function Home() {
       direction="row" justify="space-between" >
         
         {/* Client logo ITEM */}
-        <Grid item xs={6} >{<img src={logo} alt="logo" style={{width: '250px',height: '55px', padding: '5px 0px 0px 5px'}}></img>}</Grid>
+        <Grid item xs={6} >{<img src={logo} alt="logo" style={{width: '250px', padding: '5px 0px 0px 5px'}}></img>}</Grid>
 
         {/* Profile group ITEM */}
         <Grid item style={{color:"#FFD20D"}}>
@@ -330,8 +335,6 @@ function Previews() {
         } 
     }
 
-
-
     return (
         <div container class="reports-grid">
             <Grid item className='AppBar' style={{background: 'rgba(33,31,19,1)', fontFamily: 'Roboto'}}>
@@ -339,7 +342,7 @@ function Previews() {
                     {/* Client Logo */}
                     <Grid item xs={3}>
                     <Link to="/" className="link">
-                        {<img src={logo} alt="logo" style={{ width: '250px', height: '55px', padding: '5px 0px 0px 5px'}}></img>}
+                        {<img src={logo} alt="logo" style={{ width: '250px', padding: '5px 0px 0px 5px'}}></img>}
                     </Link>
                 </Grid>
 
@@ -355,11 +358,13 @@ function Previews() {
 
                 {/* Profile group ITEM */}
                 <Grid item style={{color:"#FFD20D"}}>
-                    <IconButton aria-label="favorite icon" color="inherit" style={{margin:0, padding:0}}>
-                        <Badge color="secondary">
-                            <StarsRoundedIcon fontSize='large' />
-                        </Badge>
-                    </IconButton>
+                    <Link to='/favpage' style={{color:"#FFD20D"}}>
+                        <IconButton aria-label="favorite icon" color="inherit" style={{margin:0, padding:0}}>
+                            <Badge >
+                                <StarsRoundedIcon fontSize='large' />
+                            </Badge>
+                        </IconButton>
+                    </Link>
                     <IconButton aria-label="show 5 new notifications" color="inherit" style={{ margin: 0 }}>
                         <Badge badgeContent={5} color="secondary">
                             <NotificationsIcon fontSize='large' />
@@ -374,18 +379,18 @@ function Previews() {
             </Grid>
 
             {/* Left Navigation */}
-            <div class="NavLeft" style={{background: '#55544c'}}>
+            <div className="NavLeft" style={{background: '#55544c'}}>
                 <Grid
                     container
                     direction='column'
                     alignItems='center'
+                    justify='space-between'
                     style={{background:'#55544c'}}
                 >
                     {/* Navigation Cards */}
-                    {cardList.map((dept) => {
-                                               
+                    {cardList.map((dept) => {                      
                         return (
-                            <Grid container className="NavCard" onClick={closeExpandedReport} style={{justifyContent: 'center'}}>
+                            <Grid item className="NavCard" onClick={closeExpandedReport} style={{justifyContent: 'center'}}>
                                 <NavCard className='NavCard' key={dept.id} properties={dept}></NavCard>         
                             </Grid>
                         );
@@ -401,19 +406,22 @@ function Previews() {
             <Grid className="previews-dashboard">
 
                 {/*Expanded Report*/}
-                <ExpandedReport id="ExpandedReport" />
-                <IconButton id="closeIcon" aria-label="close" disableRipple disableFocusRipple disableTouchRipple>
-                    <CloseIcon id="" onClick={closeExpandedReport} fontSize='medium'/>
-                </IconButton>
+                <ExpandedReport id="ExpandedReport" />       
+                
+
                 <Grid container id='previews-wrapper'>
                     <Grid container className='previews-container'>
                         {reportsList.map((report) => {
+                            if(report.fav){
+                                sessionStorage.setItem(report.id, report.title)
+                                console.log(report.title)
+                            }
                             return (
                                 <Grid item className='thumbnail'>
                                     <Thumbnail key={report.id} props={report}/>
                                 </Grid> 
                             );
-                        })}  
+                        })} {console.log("Thumbnails Generated and Fav assets loaded to session storage")}
                     </Grid>
                 </Grid>
             </Grid>

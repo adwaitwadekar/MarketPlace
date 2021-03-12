@@ -34,18 +34,30 @@ class Thumbnail extends React.Component {
 
     // create list
     remFav = () => {
-        this.setState({fav: false})
-        console.log(this.state.id + " was clicked")
-        reportsList.map(report => {
-            if(this.state.id == report.id){
-                console.log("Map function matched IDs")
-                report.fav = false;
+        this.setState({fav: false});
+        console.log(this.state.title + " was clicked at remFav, ID: " + this.state.id);
+        for(var i in window.sessionStorage){
+            if(i == this.state.id){
+                sessionStorage.removeItem(this.state.id);
+                alert("Asset removed from favorites!");
             }
-        })
+            else{
+                alert(this.state.title + " is not in favorites!");
+            }
+        }
     }
     addFav = () => {
-        this.setState({fav: true})
-        console.log(this.state.id + " was clicked")
+        this.setState({fav: true});
+        console.log(this.state.title + " was clicked at addFav, ID: " + this.state.id);
+        for(var i in window.sessionStorage){
+            if(i == this.state.id){
+                alert("Asset already favorited!");
+            }
+            else{
+                sessionStorage.setItem(this.state.id, this.state.title);
+                alert(this.state.title + " added to favorites!");
+            }
+        }
     }
 
     handleClick() {
@@ -69,7 +81,7 @@ class Thumbnail extends React.Component {
                     <div>
                         <a href={this.state.src} target="_blank">{this.state.desc.substr(0,100) + "..."}</a> 
                     </div>
-                    {(this.state.fav) ? (
+                    {(sessionStorage.getItem(this.state.id) != null) ? (
                         <AiFillStar style={{color: '#FFD20D'}}
                         onClick={this.remFav} size={28}></AiFillStar>
                     ) : (

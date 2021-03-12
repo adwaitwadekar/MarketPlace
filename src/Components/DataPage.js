@@ -20,7 +20,7 @@ class DataPage extends React.Component{
         reqHeaders.append("Content-Type", "application/json");
         var raw = JSON.stringify({
             "username": "AXW1018",
-            "password": "" // Hard-code SBD password here for DEMO PURPOSES ONLY
+            "password": "hv0!EtVq" // Hard-code SBD password here for DEMO PURPOSES ONLY
         });
 
         var reqOptions = {
@@ -62,7 +62,7 @@ class DataPage extends React.Component{
                     console.log(this.state.token)
                     let b64 = require('base-64');
                     let uname = 'AXW1018';
-                    let pword = ''; // Hard-code SBD password here for DEMO PURPOSES ONLY
+                    let pword = 'hv0!EtVq'; // Hard-code SBD password here for DEMO PURPOSES ONLY
                     fetch("https://collibra.sandbox.sbd-caspian.com:4400/rest/2.0/assets?offset=0&limit=5&nameMatchMode=ANYWHERE&typeInheritance=true&excludeMeta=true&sortField=NAME&sortOrder=ASC", {
                         method: 'GET',
                         headers: {
@@ -71,7 +71,10 @@ class DataPage extends React.Component{
                         }
                     })
                         .then(response => response.json())
-                        .then(result => console.log(result))
+                        .then(result => {
+                            console.log(result)
+                            console.log(b64.encode('AXW1018:hv0!EtVq'))
+                        })
                         .catch(err => console.log("ERROR at GET: " + err))
 
 
