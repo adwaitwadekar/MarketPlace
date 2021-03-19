@@ -39,10 +39,10 @@ class Thumbnail extends React.Component {
         for(var i in window.sessionStorage){
             if(i == this.state.id){
                 sessionStorage.removeItem(this.state.id);
-                alert("Asset removed from favorites!");
+                //alert("Asset removed from favorites!");
             }
             else{
-                alert(this.state.title + " is not in favorites!");
+                //alert(this.state.title + " is not in favorites!");
             }
         }
     }
@@ -51,11 +51,11 @@ class Thumbnail extends React.Component {
         console.log(this.state.title + " was clicked at addFav, ID: " + this.state.id);
         for(var i in window.sessionStorage){
             if(i == this.state.id){
-                alert("Asset already favorited!");
+                //alert("Asset already favorited!");
             }
             else{
                 sessionStorage.setItem(this.state.id, this.state.title);
-                alert(this.state.title + " added to favorites!");
+                //alert(this.state.title + " added to favorites!");
             }
         }
     }
@@ -69,7 +69,7 @@ class Thumbnail extends React.Component {
     render() {
         
         return (
-            <Grid container style={{ width: this.state.width, height: this.state.height }}>
+            <Grid container style={{ width: this.state.width, height: this.state.height, border: 'solid' }}>
                 <Grid item style={{ width: this.state.width, height: this.state.height }}>
                     {<img src={this.state.img} onClick={this.handleClick} style={{ width: this.state.width, height: this.state.height, cursor: "pointer" }}></img>}
                 </Grid>
@@ -83,10 +83,10 @@ class Thumbnail extends React.Component {
                     </div>
                     {(sessionStorage.getItem(this.state.id) != null) ? (
                         <AiFillStar style={{color: '#FFD20D'}}
-                        onClick={this.remFav} size={28}></AiFillStar>
+                        onClick={this.remFav} size={38}></AiFillStar>
                     ) : (
                         <AiOutlineStar style={{color: '#FFD20D'}}
-                        onClick={this.addFav} size={28}></AiOutlineStar>
+                        onClick={this.addFav} size={38}></AiOutlineStar>
                     )}
                     
                 </Grid>

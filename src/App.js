@@ -21,6 +21,8 @@ import TextField from '@material-ui/core/TextField';
 import { withStyles } from "@material-ui/core/styles";
 import { fade, makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
+import bob from './imageAssets/Bob_ProfilePic.png'
+import Avatar from '@material-ui/core/Avatar';
 
 
 // React Router Components
@@ -118,7 +120,7 @@ function Home() {
             display: 'flex',
             backgroundColor: '#FFD20D',
             borderRadius: 50,
-            color: '#ffffff'
+            color: 'black'
         },
         inputRoot: {
             color: 'inherit',
@@ -166,18 +168,20 @@ function Home() {
 
         {/* Profile group ITEM */}
         <Grid item style={{color:"#FFD20D"}}>
-          <IconButton aria-label="favorite icon" color="inherit" style={{margin:0, padding:0}}>
-            <Badge color="secondary">
-                <StarsRoundedIcon fontSize='large' />
-            </Badge>
-          </IconButton>
+            <Link to='/favpage' style={{color:"#FFD20D"}}>
+                <IconButton aria-label="favorite icon" color="inherit" style={{margin:0, padding:0}}>
+                    <Badge >
+                        <StarsRoundedIcon fontSize='large' />
+                    </Badge>
+                </IconButton>
+            </Link>
           <IconButton aria-label="show 5 new notifications" color="inherit" style={{ margin: 0 }}>
             <Badge badgeContent={5} color="secondary">
                 <NotificationsIcon fontSize='large' />
             </Badge>
           </IconButton>
           <IconButton color="inherit">
-            <AccountCircle style={{width: '70px', height:'70px'}} />
+            <Avatar alt="Bob Slowikowski" src={bob} style={{width: '70px', height:'70px'}}></Avatar>
             {/* <Avatar alt="useravatar">B</Avatar> */}            
           </IconButton>      
         </Grid>
@@ -189,7 +193,7 @@ function Home() {
 
         <Grid item>
           <WhiteTextTypography variant='p' style={{fontSize:'35px', margin:'55px 0 25px'}}>
-            Welcome to the <strong>Integrated Data and Analytics Portal</strong>
+            Welcome Bob, to the <strong>Integrated Data and Analytics Portal</strong>
           </WhiteTextTypography>
         </Grid>
 
@@ -201,7 +205,7 @@ function Home() {
 
         <Grid className={classes.search}>
             <InputBase
-                placeholder="Search Reporting Assets"
+                placeholder="Search Assets"
                 classes={{
                     root: classes.inputRoot,
                     input: classes.inputInput,
@@ -277,18 +281,19 @@ function Previews() {
         },
         search: {
             display: 'flex',
-            position: 'relative',
-            bottom: '3px',
+            position: 'static',
             color: 'white',
             borderRadius: 100,
-            backgroundColor: fade(theme.palette.common.black, 0.35),
+            backgroundColor: fade(theme.palette.common.white, 0.35),
             '&:hover': {
                 backgroundColor: fade(theme.palette.common.black, 0.25),
             },
             width: '100%',
+            alignItems: 'stretch',
+            justify: 'center',
             justifyContent: 'space-between',
-            [theme.breakpoints.up('xs')]: {
-                margin: theme.spacing(5, 2, 0),
+            [theme.breakpoints.up('md')]: {
+                margin: theme.spacing(5, 29, 0),
                 padding: theme.spacing(1, 1, .25, 2),
                 width: 'auto',
             },
@@ -302,7 +307,7 @@ function Previews() {
             left: '0px',
             pointerEvents: 'none',
             display: 'flex',
-            backgroundColor: 'blue',
+            backgroundColor: '#FFD20D',
             borderRadius: 100,
             color: fade(theme.palette.common.white, 1)
         },
@@ -323,6 +328,7 @@ function Previews() {
     }));
 
     // 'classes' declaration
+    const pclasses = useStyles();
 
     // ExpandedReport function that closes the expanded report in the iframe
     const closeExpandedReport = () => { 
@@ -347,13 +353,7 @@ function Previews() {
                 </Grid>
 
                 <Grid item xs={4} style={{padding: '10px 0px 0px 0px'}}>
-                    <Autocomplete
-                    id="combo-box-demo"
-                    options={assetsList}
-                    getOptionLabel={(option) => option.title}
-                    style={{ width: 450, background: 'white'}}
-                    renderInput={(params) => <TextField {...params} label="Search Available Assets" variant="filled"/>}
-                    />
+                    
                 </Grid>
 
                 {/* Profile group ITEM */}
@@ -371,8 +371,7 @@ function Previews() {
                         </Badge>
                     </IconButton>
                     <IconButton color="inherit">
-                        <AccountCircle style={{width: '70px', height:'70px'}} />
-                        {/* <Avatar alt="useravatar">B</Avatar> */}            
+                        <Avatar alt="Bob Slowikowski" src={bob} style={{width: '70px', height:'70px'}}></Avatar>           
                     </IconButton>      
                 </Grid>
                 </Grid>
@@ -403,7 +402,7 @@ function Previews() {
                 </Grid>
             </div>
             {/* Main Dashboard for Previews Page*/}
-            <Grid className="previews-dashboard">
+            <Grid className="previews-dashboard" style={{backgroundColor: 'white'}}>
 
                 {/*Expanded Report*/}
                 <ExpandedReport id="ExpandedReport" />       
@@ -424,9 +423,6 @@ function Previews() {
                         })} {console.log("Thumbnails Generated and Fav assets loaded to session storage")}
                     </Grid>
                 </Grid>
-            </Grid>
-            <Grid container className='NavRight'>
-                <NavRight />
             </Grid>
         </div>
     );

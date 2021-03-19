@@ -4,7 +4,6 @@ import ico from '../imageAssets/reportImages/ICO.png'
 import ect from '../imageAssets/reportImages/ECT.png'
 import mro from '../imageAssets/reportImages/MRO.png'
 import tlo from '../imageAssets/reportImages/te_air.png'
-import smple from '../imageAssets/reportImages/TempLabor.png'
 import ncov from '../imageAssets/reportImages/ncov.PNG'
 
 export const reportsList = [
@@ -45,7 +44,7 @@ export const reportsList = [
         title: "nCov2019 - Sample Asset",
         src: "https://ncov2019.live/",
         img: ncov,
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut labore et aliqua. Ut enim ad minim veniam, quis nostrud exercitation laboris",
         fav: false,
     },
 ]

@@ -29,19 +29,36 @@ class DeptCard extends React.Component {
     }
 
     render() {
-        return (
-            <Grid item style={{padding: '28px 0px 74px'}}>
-                <Card.Body border= 'none' 
-                style={{ width: '280px', height: '280px', textAlign: 'center', background: 'rgba(0,0,0,0)' }}>
-                    <Link to={this.state.route} className='link' id={this.state.id} onClick={this.handleClick}>
-                        {<img src={this.state.img} style={{ height: '240px', width: '45%', objectFit:'contain' }}></img>}   
-                        <Typography variant='h5' gutterBottom style={{color: 'black'}}>
-                            <strong>{this.state.title}</strong>
-                        </Typography>
-                    </Link>
-                </Card.Body>
-            </Grid>
+        if(this.state.id == 2){
+            return (
+                <Grid item style={{padding: '28px 0px 74px'}}>
+                    <Card.Body border= 'none' 
+                    style={{ width: '280px', height: '280px', textAlign: 'center', background: 'rgba(0,0,0,0)' }}>
+                        <Link to={this.state.route} className='link' id={this.state.id} onClick={this.handleClick}>
+                            {<img src={this.state.img} style={{ height: '240px', width: '60%', objectFit:'contain' }}></img>}   
+                            <Typography variant='h5' gutterBottom style={{color: 'black'}}>
+                                <strong>{this.state.title}</strong>
+                            </Typography>
+                        </Link>
+                    </Card.Body>
+                </Grid>
             )
+        }
+        else {
+            return (
+                <Grid item style={{padding: '28px 0px 74px'}}>
+                    <Card.Body border= 'none' 
+                    style={{ width: '280px', height: '280px', textAlign: 'center', background: 'rgba(0,0,0,0)' }}>
+                        <Link to={this.state.route} className='link' id={this.state.id} onClick={this.handleClick}>
+                            {<img src={this.state.img} style={{ height: '240px', width: '45%', objectFit:'contain' }}></img>}   
+                            <Typography variant='h5' gutterBottom style={{color: 'black'}}>
+                                <strong>{this.state.title}</strong>
+                            </Typography>
+                        </Link>
+                    </Card.Body>
+                </Grid>
+                )
+        }
     }
 
 };

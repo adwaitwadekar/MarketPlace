@@ -22,9 +22,72 @@ import { assetsList } from '../sampleData.js';
 import { withStyles } from "@material-ui/core/styles";
 import logo from '../SBD.png';
 import { Link, Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { fade, makeStyles } from '@material-ui/core/styles';
+import bob from '../imageAssets/Bob_ProfilePic.png'
+import Avatar from '@material-ui/core/Avatar';
 
 function FavPage(props) {
 
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            '& > *': {
+                margin: theme.spacing(1),
+            },
+        },
+        search: {
+            display: 'flex',
+            position: 'static',
+            color: 'white',
+            borderRadius: 100,
+            backgroundColor: fade(theme.palette.common.white, 0.35),
+            '&:hover': {
+                backgroundColor: fade(theme.palette.common.black, 0.25),
+            },
+            width: '100%',
+            alignItems: 'stretch',
+            justify: 'center',
+            justifyContent: 'space-between',
+            [theme.breakpoints.up('md')]: {
+                margin: theme.spacing(5, 29, 0),
+                padding: theme.spacing(1, 1, .25, 2),
+                width: 'auto',
+            },
+        },
+        searchIcon: {
+            marginBottom: '1px',
+            marginLeft: '3px',
+            padding: theme.spacing(.25, 0, 0, .25),
+            height: '85%',
+            position: 'relative',
+            left: '0px',
+            pointerEvents: 'none',
+            display: 'flex',
+            backgroundColor: '#FFD20D',
+            borderRadius: 50,
+            color: '#ffffff'
+        },
+        inputRoot: {
+            color: 'inherit',
+        },
+        homeImg: {
+            // used css-loader instead of app.css here
+            //backgroundImage: `url(${Background})`
+        },
+        headerStyle: {
+            // grey shading for header
+            backgroundColor: 'rgba(128,128,128,0.0)'
+        },
+        inputInput: {
+            padding: theme.spacing(.5, 0, 1.25, 0),
+            // vertical padding + font size from searchIcon
+            paddingLeft: '0px',
+            transition: theme.transitions.create('width'),
+            textAlign: 'left',
+            [theme.breakpoints.up('md')]: {
+                width: '44ch',
+            },
+        },
+    }));
 
     const closeExpandedReport = () => { 
         let expandedReportFrame_id = document.getElementById("expandedReportFrame");
@@ -54,7 +117,7 @@ function FavPage(props) {
                 </Grid>
 
                 <Grid item xs={4} style={{padding: '10px 0px 0px 0px'}}>
-                    <WhiteTextTypography variant='p' style={{fontSize:'35px'}}><strong>Favorited Assets</strong></WhiteTextTypography>
+                    
                 </Grid>
 
                 {/* Profile group ITEM */}
@@ -72,7 +135,7 @@ function FavPage(props) {
                         </Badge>
                     </IconButton>
                     <IconButton color="inherit">
-                        <AccountCircle style={{width: '70px', height:'70px'}} />
+                        <Avatar alt="Bob Slowikowski" src={bob} style={{width: '70px', height:'70px'}}></Avatar>
                         {/* <Avatar alt="useravatar">B</Avatar> */}            
                     </IconButton>      
                 </Grid>
@@ -104,7 +167,7 @@ function FavPage(props) {
                 </Grid>
             </div>
             {/* Main Dashboard for Previews Page*/}
-            <Grid className="previews-dashboard">
+            <Grid className="previews-dashboard" style={{backgroundColor: 'white'}}>
 
                 {/*Expanded Report*/}
                 <ExpandedReport id="ExpandedReport" />
@@ -127,9 +190,6 @@ function FavPage(props) {
                         })}  
                     </Grid>
                 </Grid>
-            </Grid>
-            <Grid container className='NavRight'>
-                <NavRight />
             </Grid>
         </div>
     )
