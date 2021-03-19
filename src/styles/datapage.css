@@ -1,0 +1,9 @@
+
+#dataDash {
+    background-image: url("DS_Landing.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    width: 104%;
+    height: 100vh;
+}

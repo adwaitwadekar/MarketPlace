@@ -1,66 +1,50 @@
 //reportsList.js 
 
+import ico from '../imageAssets/reportImages/ICO.png'
+import ect from '../imageAssets/reportImages/ECT.png'
+import mro from '../imageAssets/reportImages/MRO.png'
+import tlo from '../imageAssets/reportImages/te_air.png'
+import ncov from '../imageAssets/reportImages/ncov.PNG'
 
 export const reportsList = [
     {
         id: 0,
-        title: "Thumbnail 1",
-        src: "",
-        img: "" ,
+        title: "Input Cost Optimization",
+        src: "https://shinyproxy.sandbox.sbd-caspian.com/app/gsm_input_cost_monitoring",
+        img: ico,
+        desc: "This application uses full company spend and applies commodity and FX rates to pinpoint savings opportunities and risks at a supplier, plant, material level of detail",
+        fav: false,
     },
     {
         id: 1,
-        title: "Thumbnail 2",
+        title: "Electronics Cost Tool",
         src: "",
-        img:"" ,
+        img: ect,
+        desc: "This application uses specific information describing the price and materials that are used in electronic components and allows for cross-portfolio comparison to haromize vendor spend",
+        fav: false,
     },
     {
         id: 2,
-        title: "Thumbnail 3",
+        title: "Temp Labor Optimization",
         src: "",
-        img:"" ,
+        img: tlo,
+        desc: "This suite of dashboards visualizes Temp Labor spend to highlight non-compliant spend, excess overtime, and pay rates for specific functions. The intended use is to identify opportunities to use preferred vendors, normalize pay rates, and improve resource planning to avoid overtime if possible",
+        fav: false,
     },
     {
         id: 3,
-        title: "Thumbnail 4",
+        title: "MRO Compliance Dashboard",
         src: "",
-        img: ""
+        img: mro,
+        desc: "This application uses specific information describing the price and materials that are used in electronic components and allows for cross-portfolio comparison to haromize vendor spend",
+        fav: false,
     },
     {
         id: 4,
-        title: "Thumbnail 5",
-        src: "",
-        img: ""
+        title: "nCov2019 - Sample Asset",
+        src: "https://ncov2019.live/",
+        img: ncov,
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut labore et aliqua. Ut enim ad minim veniam, quis nostrud exercitation laboris",
+        fav: false,
     },
-    {
-        id: 5,
-        title: "Thumbnail 6",
-        src: "",
-        img: ""
-    },
-    {
-        id: 6,
-        title: "Thumbnail 7",
-        src: "",
-        img: ""
-    },
-    {
-        id: 7,
-        title: "Thumbnail 8",
-        src: "",
-        img: ""
-    },
-    {
-        id: 8,
-        title: "Thumbnail 9",
-        src: "",
-        img: ""
-    },
-    {
-        id: 9,
-        title: "Thumbnail 10",
-        src: "",
-        img: ""
-    },
-
 ]
