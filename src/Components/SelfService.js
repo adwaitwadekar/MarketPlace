@@ -20,9 +20,10 @@ import { Link, Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import bob from '../imageAssets/Bob_ProfilePic.png'
 import Avatar from '@material-ui/core/Avatar';
+import { Typography } from '@material-ui/core';
 
 
-class DataPage extends React.Component{
+class SelfService extends React.Component{
 
     constructor(props){
         super(props);
@@ -92,10 +93,36 @@ class DataPage extends React.Component{
 
                 </Grid>
             </div>
-            {/* Main Dashboard for data Page*/}
-            <Grid className="previews-dashboard" id="dataDash">
-                <Grid item >
-                   
+            {/* Main Dashboard for Self Service*/}
+            <Grid container direction='column' alignItems='center'>
+                <Grid item style ={{ padding: '60px' }}>
+                   <Typography variant='h4'>Operational Dashboard</Typography>
+                </Grid>
+                <Grid item container direction='column' alinItems='flex-start' style={{ padding: '20px 0px 0px 0px'}}>
+                    <Typography variant='h6' style={{padding: '20px 0px 40px 100px'}}><u>System Health Check</u></Typography>
+                    <table style={{width: '80%', margin: 'auto'}}>
+                        <tr class='spaceUnder'>
+                            <td>Processing EMR  <span class="dotRed" ></span></td>
+                            <td>Redshift  <span class="dot"></span></td>
+                            <td>S3  <span class="dot"></span></td>
+                            <td>Alteryx Server  <span class="dot"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Access EMR  <span class="dot" ></span></td>
+                            <td>Jupyter Notebooks  <span class="dot"></span></td>
+                            <td>Data Robot  <span class="dot"></span></td>
+                            <td>Alteryx Workspace  <span class="dot"></span></td>
+                        </tr>
+                    </table>
+                </Grid>
+                <Grid item container direction='column' alinItems='flex-start' style={{ padding: '40px 0px 0px 0px'}}>
+                    <Typography variant='h6' style={{padding: '20px 0px 40px 100px'}}><u>Datasets</u></Typography>
+                    <table style={{width: '80%', margin: 'auto'}}>
+                        <tr class='spaceUnder'><td>BODS</td></tr>
+                        <tr class='spaceUnder'><td>SAP</td></tr>
+                        <tr class='spaceUnder'><td>JDA</td></tr>
+                        <tr class='spaceUnder'><td>MAC Tools</td></tr>
+                    </table>
                 </Grid>
             </Grid>
         </div>
@@ -104,4 +131,4 @@ class DataPage extends React.Component{
     }
 }
 
-export default DataPage;
+export default SelfService;

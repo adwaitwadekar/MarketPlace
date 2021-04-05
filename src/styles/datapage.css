@@ -7,3 +7,24 @@
     width: 104%;
     height: 100vh;
 }
+
+/* Styling for Self Service TODO - Put in own CSS file */
+.dot {
+    height: 35px;
+    width: 35px;
+    background-color: rgb(10, 235, 10);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+.dotRed {
+    height: 35px;
+    width: 35px;
+    background-color: rgb(241, 8, 8);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  tr.spaceUnder>td {
+    padding-bottom: 40px;
+  }

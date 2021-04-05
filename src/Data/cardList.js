@@ -43,6 +43,6 @@ export const cardList = [
         altText: "",
         metricsText: "PLACEHOLDER FOR KPIs",
         metrics: "",
-        route: "/"
+        route: "/selfservice"
     },
 ];

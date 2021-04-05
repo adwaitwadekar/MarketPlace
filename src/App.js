@@ -25,6 +25,7 @@ import bob from './imageAssets/Bob_ProfilePic.png'
 import Avatar from '@material-ui/core/Avatar';
 
 
+
 // React Router Components
 import {
     BrowserRouter as Router,
@@ -44,6 +45,7 @@ import Thumbnail from './Components/Thumbnail.js';
 import { assetsList } from './sampleData.js';
 import DataPage from './Components/DataPage.js';
 import FavPage from './Components/FavPage.js'
+import SelfService from './Components/SelfService.js'
 
 
 // Stylesheets
@@ -74,6 +76,9 @@ function App() {
                 </Route>
                 <Route exact path="/favpage">
                     <FavPage />
+                </Route>
+                <Route exact path="/selfservice">
+                    <SelfService />
                 </Route>
             </Switch>
         </Router>
@@ -113,14 +118,15 @@ function Home() {
             marginBottom: '1px',
             marginLeft: '3px',
             padding: theme.spacing(.25, 0, 0, .25),
-            height: '85%',
+            height: '60%',
             position: 'relative',
             left: '0px',
             pointerEvents: 'none',
             display: 'flex',
             backgroundColor: '#FFD20D',
             borderRadius: 50,
-            color: 'black'
+            color: 'black',
+            marginTop: '12px'
         },
         inputRoot: {
             color: 'inherit',
@@ -204,14 +210,23 @@ function Home() {
         </Grid>
 
         <Grid className={classes.search}>
-            <InputBase
+            {/* <InputBase
                 placeholder="Search Assets"
                 classes={{
                     root: classes.inputRoot,
                     input: classes.inputInput,
                 }}
                 inputProps={{ 'aria-label': 'search' }}
-            />
+            />*/}
+            <Autocomplete
+                id="clear-on-blur"
+                options={reportsList}
+                getOptionLabel={(option) => option.title}
+                style={{width: 350}}
+                renderInput={(params) => <TextField {...params} label="Search Reporting Assets"></TextField>}>
+
+            </Autocomplete>
+            
             <div className={classes.searchIcon}>
                 <SearchIcon />
             </div>
