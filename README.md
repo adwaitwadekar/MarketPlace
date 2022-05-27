@@ -21,10 +21,12 @@ Install the dependencies by creating a requirements file or manually install the
 `npm install {dependency-name}`
 
 Dependencies: 
-    1. react
-    2. @material-ui/core
-    3. @material-ui/icons
-    4. @material-ui/lab
+```
+1. react
+2. @material-ui/core
+3. @material-ui/icons
+4. @material-ui/lab
+```
 
 ### `npm test`
 
